@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Reset default margins */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Fixed Navigation Menu */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background-color: #007BFF; /* Blue on scroll */
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 12px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: white;
+      color: #007BFF;
+      border-radius: 5px;
+    }
+
+    /* Dummy content to allow scrolling */
+    .content {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    .section {
+      height: 100vh;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="content">
+    <div class="section" style="background-color: #f0f0f0;">Section 1</div>
+    <div class="section" style="background-color: #e0e0e0;">Section 2</div>
+    <div class="section" style="background-color: #d0d0d0;">Section 3</div>
+    <div class="section" style="background-color: #c0c0c0;">Section 4</div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
